@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jorge
  */
-@WebServlet(urlPatterns = {"/Home"})
+@WebServlet(urlPatterns = {"/"})
 public class Home extends HttpServlet {
 
     /**
@@ -32,6 +32,7 @@ public class Home extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.getRequestDispatcher("Index.jsp").forward(request, response);
         
     }
 
