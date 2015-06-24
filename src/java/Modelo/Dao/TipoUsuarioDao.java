@@ -22,12 +22,11 @@ import java.util.logging.Logger;
 public class TipoUsuarioDao implements Obligacion<TipoUsuarioDto>{
     
     private final DAO dao = new DAO();
-    private Object result;
 
     @Override
     public boolean create(TipoUsuarioDto c) {
-        String[] param = {c.getNombre()};
-        return dao.executeUpdate(c.sqlInsert(), param);
+        String[] para = {Integer.toString(c.getId()),c.getNombre()};
+        return dao.executeUpdate(c.sqlInsert(), para);
     }
 
     @Override

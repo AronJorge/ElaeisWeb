@@ -18,21 +18,13 @@ import java.util.logging.Logger;
 /**
  *
  * @author jorge
- *  private int id;
-    private String Nic;
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private String email;
-    private boolean regustofedepalma;
  */
 public class FincaDao implements Obligacion<FincaDto>{
     private final DAO dao = new DAO();
-    private Object result;
 
     @Override
     public boolean create(FincaDto c) {
-        String[] param = {c.getNic(),c.getNombre(),c.getDireccion(),c.getTelefono(),c.getEmail(),/*Integer.toString(c.isRegustofedepalma())*/};
+        String[] param = {c.getNic(),c.getNombre(),c.getDireccion(),c.getTelefono(),c.getEmail(),Integer.toString(c.isRegustofedepalma())};
         return dao.executeUpdate(c.sqlInsert(), param);
     }
 
@@ -44,7 +36,7 @@ public class FincaDao implements Obligacion<FincaDto>{
 
     @Override
     public boolean update(FincaDto c) {
-        String[] param = {c.getNic(),c.getNombre(),c.getDireccion(),c.getTelefono(),c.getEmail(),/*Integer.toString(c.isRegustofedepalma()),*/Integer.toString(c.getId())};    
+        String[] param = {c.getNic(),c.getNombre(),c.getDireccion(),c.getTelefono(),c.getEmail(),Integer.toString(c.isRegustofedepalma()),Integer.toString(c.getId())};    
         return  dao.executeUpdate(c.sqlUpdate(), param);
     }
 

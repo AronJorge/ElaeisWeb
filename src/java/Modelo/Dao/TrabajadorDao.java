@@ -22,7 +22,6 @@ import java.util.logging.Logger;
  */
 public class TrabajadorDao implements Obligacion<TrabajadorDto>{
     private final DAO dao = new DAO(); 
-    private Object result;
 
     @Override
     public boolean create(TrabajadorDto c) {

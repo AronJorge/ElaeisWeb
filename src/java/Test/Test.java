@@ -5,7 +5,9 @@
  */
 package Test;
 
+import Modelo.Dao.TipoUsuarioDao;
 import Modelo.Dao.UsuarioDao;
+import Modelo.Dto.TipoUsuarioDto;
 import Modelo.Dto.UsuarioDto;
 import java.util.Iterator;
 import java.util.List;
@@ -20,9 +22,9 @@ public class Test {
         
         c.read(new UsuarioDto(2));
         
-        UsuarioDto d = c.read(new UsuarioDto(3));
+        UsuarioDto d = c.read(new UsuarioDto(2));
+         System.out.println(d.getId());
         
-            System.out.println(d.getId()+"--"+d.getUsuario()+"--"+d.getContraseña()+"--"+d.getEmail()+"--"+d.getFechacreacion());
         
         
     }

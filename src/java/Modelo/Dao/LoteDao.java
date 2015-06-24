@@ -24,7 +24,6 @@ import java.util.logging.Logger;
 public class LoteDao implements Obligacion<LoteDto> {
 
     private final DAO dao = new DAO();
-    private Object result;
 
     @Override
     public boolean create(LoteDto c) {

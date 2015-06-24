@@ -70,8 +70,12 @@ public class FincaDto extends DTO{
         return email;
     }
 
-    public boolean isRegustofedepalma() {
-        return regustofedepalma;
+    public int isRegustofedepalma() {
+        if (regustofedepalma) {
+            return 1;
+        }else{
+            return 0;
+        }       
     }
 
     public void setId(int id) {

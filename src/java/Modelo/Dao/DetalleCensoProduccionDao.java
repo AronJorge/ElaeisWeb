@@ -17,14 +17,11 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author jorge private int id ; private int censoProduccion_id ; private int
- * Ninflorecenciasfemeninas; private int Nracimos; private int palma_id ;
- * private int trabajador_id ; private int trabajador_usuario_id
+ * @author jorge 
  */
 public class DetalleCensoProduccionDao implements Obligacion<DetalleCensoProduccionDto> {
 
     private final DAO dao = new DAO();
-    private Object result;
 
     @Override
     public boolean create(DetalleCensoProduccionDto c) {

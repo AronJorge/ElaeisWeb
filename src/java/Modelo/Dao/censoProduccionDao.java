@@ -23,8 +23,7 @@ import java.util.logging.Logger;
  */
 public class censoProduccionDao implements Obligacion<censoProduccionDto> {
 
-    private final DAO dao = new DAO();
-    private Object result;
+    private final DAO dao = new DAO();    
 
     @Override
     public boolean create(censoProduccionDto c) {
