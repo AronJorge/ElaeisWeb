@@ -23,7 +23,8 @@ public class Test {
         c.read(new UsuarioDto(2));
         
         UsuarioDto d = c.read(new UsuarioDto(2));
-         System.out.println(d.getId());
+        
+         System.out.println(d.getContraseña());
         
         
         

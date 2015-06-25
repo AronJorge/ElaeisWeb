@@ -20,11 +20,10 @@ import java.util.logging.Logger;
  */
 public class UsuarioDao implements Obligacion<UsuarioDto> {
     private final DAO dao = new DAO(); 
-    private Object result;
     
     @Override
     public boolean create(UsuarioDto c) {
-        String[] param={c.getUsuario(),c.getContraseña(),c.getEmail(),c.getFechacreacion()};
+        String[] param={c.getUsuario(),c.getContraseña(),Integer.toString(c.getTipousuario_id())};
         return dao.executeUpdate(c.sqlInsert(), param);
         
     }
@@ -38,7 +37,7 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
 
     @Override
     public boolean update(UsuarioDto c) {
-        String[] param={c.getUsuario(),c.getContraseña(),c.getEmail(),c.getFechacreacion(),Integer.toString(c.getId())};
+        String[] param={c.getUsuario(),c.getContraseña(),Integer.toString(c.getTipousuario_id()),Integer.toString(c.getId())};
         return dao.executeUpdate(c.sqlUpdate(), param);
         
     }
@@ -50,7 +49,7 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
         ResultSet result = dao.executeQuery(c.sqlRead(), param);
         try {
             while (result.next()) {
-                u = new UsuarioDto(result.getInt(1), result.getString("usuario"), result.getString("contrasena"), result.getString("email"), result.getString("fechareacion"));
+                u = new UsuarioDto(result.getInt(1), result.getString(2), result.getString(3),result.getInt(4));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,8 +65,8 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
         res = dao.executeQuery(c.sqlReadall(), null);
         try {
         while(res.next()){
-                list.add(new UsuarioDto(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)));
-            }
+                list.add(new UsuarioDto(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4)));
+        }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
         }  
@@ -75,3 +74,4 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
     }
     
 }
+   

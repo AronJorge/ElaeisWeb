@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author hammer
  */
 public class DAO {     
-    private static final Conexion con = Conexion.saberEstado("mysql","localhost","3306","blogs", "root", "root");
+    private static final Conexion con = Conexion.saberEstado("mysql","localhost","3306" ,"produccion", "root", "omega");
     private static  PreparedStatement ps;
    
     
@@ -60,5 +60,5 @@ public class DAO {
             con.cerrarConexion();
         }
          return res;
-    }    
+    }
 }
