@@ -20,16 +20,16 @@ import java.util.logging.Logger;
  * @author hammer
  */
 public class DAO {     
-    private static final Conexion con = Conexion.saberEstado("mysql","localhost","3306" ,"produccion", "root", "omega");
+    private static final Conexion con = Conexion.saberEstado("pgsql","localhost","5432" ,"produccion", "elaeisweb", "elaeisweb");
     private static  PreparedStatement ps;
    
     
-    public boolean executeUpdate(String SQL,String[] objeto) {       
+    public boolean executeUpdate(String SQL,Object[] objeto) {       
         try {    
             ps = con.getCnn().prepareStatement(SQL);
-            if (objeto!=null) {
+            if (objeto != null) {
                 for (int i = 0 , j=1; i < objeto.length; i++,j++) {             
-                    ps.setString(j, objeto[i].toString());                    
+                    ps.setObject(j, objeto[i]);                    
                 }                    
             }
             if (ps.executeUpdate() > 0) {
@@ -43,13 +43,13 @@ public class DAO {
         return false;       
     }
     
-    public ResultSet executeQuery(String SQL,String[] objeto){
+    public ResultSet executeQuery(String SQL,Object[] objeto){
         ResultSet res = null;
         try {
             ps=con.getCnn().prepareStatement(SQL);
              if (objeto!=null) {
                 for (int i = 0 , j=1; i < objeto.length; i++,j++) {             
-                    ps.setString(j, objeto[i].toString());                    
+                    ps.setObject(j, objeto[i]);                    
                 }                    
             }
             res = ps.executeQuery();        

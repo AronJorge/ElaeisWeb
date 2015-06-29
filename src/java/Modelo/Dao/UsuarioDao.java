@@ -38,8 +38,7 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
     @Override
     public boolean update(UsuarioDto c) {
         String[] param={c.getUsuario(),c.getContraseña(),Integer.toString(c.getTipousuario_id()),Integer.toString(c.getId())};
-        return dao.executeUpdate(c.sqlUpdate(), param);
-        
+        return dao.executeUpdate(c.sqlUpdate(), param);        
     }
 
     @Override
@@ -71,6 +70,14 @@ public class UsuarioDao implements Obligacion<UsuarioDto> {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
         }  
         return list;
+    }
+
+    public void create(int i, String elieser, String mivre, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void update(int i, String elieser, String mivre, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -11,7 +11,7 @@
     <head>
         <title> Elaeis Web </title>
         <meta charset = "utf-8"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+        <%-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"> --%>
         <link rel="stylesheet" href="css/materialize.min.css">
     </head>
 
@@ -39,8 +39,10 @@
             <div class="row">
                 <div class="col s12 ">
                     <div class="container">
-                        <h5>Nombre Plantacion</h5><table border="1">
-                        <h6>Fecha Censo</h6>
+                        <h5>Plantacion</h5><table border="1">
+                            <spam>home</spam>
+                            <h5>Fecha Censo</h5>
+                            <h5>Lote</h5>
                     </div>
                     <table class='bordered striped hoverable responsive-table'>
                         <thead>
@@ -68,8 +70,8 @@
         </div>
         <!--Adjuntando los archivos JS-->
         <script src="js/jquerty.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/materialize.min.js"></script>
     </body>
 </html>

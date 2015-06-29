@@ -25,26 +25,26 @@ public class TipoUsuarioDao implements Obligacion<TipoUsuarioDto>{
 
     @Override
     public boolean create(TipoUsuarioDto c) {
-        String[] para = {Integer.toString(c.getId()),c.getNombre()};
-        return dao.executeUpdate(c.sqlInsert(), para);
+        Object[] para = {c.getNombre()};
+        return dao.executeUpdate(c.sqlInsert(),  para);
     }
 
     @Override
     public boolean delete(TipoUsuarioDto c) {
-        String[] param = {Integer.toString(c.getId())};
-        return dao.executeUpdate(c.sqlUpdate(), param);
+        Object[] param = {c.getId()};
+        return dao.executeUpdate(c.sqlDelete(), param);
     }
 
     @Override
     public boolean update(TipoUsuarioDto c) {
-        String[] param = {c.getNombre()};
+        Object[] param = {c.getNombre(),c.getId()};
         return dao.executeUpdate(c.sqlUpdate(), param);
     }
 
     @Override
     public TipoUsuarioDto read(TipoUsuarioDto c) {
         TipoUsuarioDto tipo = null;
-        String[] param = {Integer.toString(c.getId())};
+        Object[] param = {c.getId()};
         ResultSet result = dao.executeQuery(c.sqlRead(), param);
         try {
             while (result.next()) {
@@ -70,6 +70,5 @@ public class TipoUsuarioDao implements Obligacion<TipoUsuarioDto>{
         }
         return list;
     }
-
     
 }

@@ -18,6 +18,7 @@ public class DTO {
         this.tabla=tabla;
     }
     public void getColumnaString(String cam){
+        
         campos+=cam+",";
         ncampos=ncampos+1;
     }
@@ -27,7 +28,7 @@ public class DTO {
         return sql;
     }
     private String setValorString(String sql){
-        for (int i = 0; i < ncampos; i++) {
+        for (int i = 0; i < ncampos-1; i++) {
             sql+="?,";
         }
         return sql.substring(0,sql.length()-1);
@@ -41,7 +42,7 @@ public class DTO {
     }
     
     public String sqlDelete(){
-        return "DELETE FROM "+this.tabla+" UPDATE id=?";
+        return "DELETE FROM "+this.tabla+"  WHERE id=?";
     }
     
     public String sqlUpdate(){

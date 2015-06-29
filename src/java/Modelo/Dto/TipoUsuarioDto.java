@@ -15,8 +15,12 @@ public class TipoUsuarioDto extends DTO{
     private int id;
     private String nombre;
 
+    public TipoUsuarioDto() {
+    }
+    
     public TipoUsuarioDto(int id) {
         getTabla("tipousuario");
+        getColumnaString("id");
         this.id = id;
     }
 
